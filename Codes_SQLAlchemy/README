@@ -1,0 +1,51 @@
+﻿2023-11-06 00:12:33,798 INFO sqlalchemy.engine.Engine SELECT DATABASE()
+2023-11-06 00:12:33,812 INFO sqlalchemy.engine.Engine [raw sql] {}
+2023-11-06 00:12:33,816 INFO sqlalchemy.engine.Engine SELECT @@sql_mode
+2023-11-06 00:12:33,819 INFO sqlalchemy.engine.Engine [raw sql] {}
+2023-11-06 00:12:33,822 INFO sqlalchemy.engine.Engine SELECT @@lower_case_table_names
+2023-11-06 00:12:33,825 INFO sqlalchemy.engine.Engine [raw sql] {}
+2023-11-06 00:12:33,830 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2023-11-06 00:12:33,833 INFO sqlalchemy.engine.Engine DESCRIBE `db_sqlalchemy`.`tb_users`
+2023-11-06 00:12:33,836 INFO sqlalchemy.engine.Engine [raw sql] {}
+2023-11-06 00:12:33,846 INFO sqlalchemy.engine.Engine 
+CREATE TABLE tb_users (
+	use_id INTEGER NOT NULL AUTO_INCREMENT, 
+	use_name TEXT NOT NULL, 
+	use_email VARCHAR(50) NOT NULL, 
+	use_password VARCHAR(50) NOT NULL, 
+	PRIMARY KEY (use_id)
+)
+
+
+2023-11-06 00:12:33,851 INFO sqlalchemy.engine.Engine [no key 0.00564s] {}
+2023-11-06 00:12:33,975 INFO sqlalchemy.engine.Engine COMMIT
+2023-11-06 00:12:33,982 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2023-11-06 00:12:33,987 INFO sqlalchemy.engine.Engine INSERT INTO tb_users (use_name, use_email, use_password) VALUES (%(use_name)s, %(use_email)s, %(use_password)s)
+2023-11-06 00:12:33,990 INFO sqlalchemy.engine.Engine [generated in 0.00387s] {'use_name': 'Teste', 'use_email': 'teste@teste', 'use_password': '123'}
+2023-11-06 00:12:34,015 INFO sqlalchemy.engine.Engine COMMIT
+2023-11-06 00:12:34,043 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2023-11-06 00:12:34,055 INFO sqlalchemy.engine.Engine SELECT tb_users.use_id AS tb_users_use_id, tb_users.use_name AS tb_users_use_name, tb_users.use_email AS tb_users_use_email, tb_users.use_password AS tb_users_use_password 
+FROM tb_users 
+WHERE tb_users.use_id = %(pk_1)s
+2023-11-06 00:12:34,064 INFO sqlalchemy.engine.Engine [generated in 0.00931s] {'pk_1': 1}
+2023-11-06 00:12:34,075 INFO sqlalchemy.engine.Engine COMMIT
+2023-11-06 00:12:34,084 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2023-11-06 00:12:34,094 INFO sqlalchemy.engine.Engine SELECT tb_users.use_id AS tb_users_use_id, tb_users.use_email AS tb_users_use_email, tb_users.use_password AS tb_users_use_password 
+FROM tb_users 
+WHERE tb_users.use_id = %(pk_1)s
+2023-11-06 00:12:34,103 INFO sqlalchemy.engine.Engine [generated in 0.00915s] {'pk_1': 1}
+2023-11-06 00:12:34,115 INFO sqlalchemy.engine.Engine UPDATE tb_users SET use_name=%(use_name)s WHERE tb_users.use_id = %(tb_users_use_id)s
+2023-11-06 00:12:34,123 INFO sqlalchemy.engine.Engine [generated in 0.00814s] {'use_name': 'Teste2', 'tb_users_use_id': 1}
+2023-11-06 00:12:34,134 INFO sqlalchemy.engine.Engine COMMIT
+2023-11-06 00:12:34,158 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2023-11-06 00:12:34,167 INFO sqlalchemy.engine.Engine SELECT tb_users.use_id AS tb_users_use_id, tb_users.use_name AS tb_users_use_name, tb_users.use_email AS tb_users_use_email, tb_users.use_password AS tb_users_use_password 
+FROM tb_users 
+WHERE tb_users.use_id = %(pk_1)s
+2023-11-06 00:12:34,177 INFO sqlalchemy.engine.Engine [cached since 0.1223s ago] {'pk_1': 1}
+2023-11-06 00:12:34,188 INFO sqlalchemy.engine.Engine DELETE FROM tb_users WHERE tb_users.use_id = %(use_id)s
+2023-11-06 00:12:34,196 INFO sqlalchemy.engine.Engine [generated in 0.00835s] {'use_id': 1}
+2023-11-06 00:12:34,232 INFO sqlalchemy.engine.Engine COMMIT
+2023-11-06 00:12:34,324 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2023-11-06 00:12:34,349 INFO sqlalchemy.engine.Engine SELECT tb_users.use_id AS tb_users_use_id, tb_users.use_name AS tb_users_use_name, tb_users.use_email AS tb_users_use_email, tb_users.use_password AS tb_users_use_password 
+FROM tb_users ORDER BY tb_users.use_id
+2023-11-06 00:12:34,359 INFO sqlalchemy.engine.Engine [generated in 0.01002s] {}
